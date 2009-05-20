@@ -102,7 +102,6 @@ if ($aListMods)
 else
   load_setup(MOD_PATH,$setup_dir);
 
-// TODO: Finaliser ce code à partir d'ici
 // Charge le loader général.
 require_once('Zend/Loader/Autoloader.php');
 require_once('Smarty/Smarty.class.php');
