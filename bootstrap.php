@@ -160,8 +160,9 @@ $frontController->setParam('debug',TRUE);
 
 // ********************* LOG ********************************
 // ********************* VIEW ********************************
+$templates_name = 'ubuntu_style';
 
-$view = new Tbk_View_Smarty(APP_PATH.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR);
+$view = new Tbk_View_Smarty(WRI_PATH.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$templates_name.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR);
 $view->_smarty->compile_dir = WRI_PATH.DIRECTORY_SEPARATOR.'templates_c';
 $view->_smarty->config_dir = WRI_PATH.DIRECTORY_SEPARATOR.'configs';
 $view->_smarty->cache_dir = WRI_PATH.DIRECTORY_SEPARATOR.'cache';
@@ -180,7 +181,7 @@ $view->setEncoding('UTF-8');
 // http://framework.zend.com/manual/fr/zend.controller.response.html
 // Demande au contrôleur frontal de ne pas afficher, mais retourner
 //Affecte une variable à toutes les vues pour pouvoir inclure le header et le footer.
-$view->assign('chemin_patron',WRI_PATH.DIRECTORY_SEPARATOR.'templates');
+$view->assign('chemin_patron',WRI_PATH.DIRECTORY_SEPARATOR.'templates/ubuntu_style');
 
 $frontController->returnResponse(TRUE);
 

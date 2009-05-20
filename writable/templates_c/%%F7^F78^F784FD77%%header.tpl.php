@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.24, created on 2009-05-20 11:01:40
-         compiled from /var/www/tabarnak/writable/templates/header.tpl */ ?>
+<?php /* Smarty version 2.6.24, created on 2009-05-20 11:44:00
+         compiled from /var/www/tabarnak/writable/templates/tabarnak/header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '/var/www/tabarnak/writable/templates/header.tpl', 4, false),array('function', 'load_menu', '/var/www/tabarnak/writable/templates/header.tpl', 14, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '/var/www/tabarnak/writable/templates/tabarnak/header.tpl', 4, false),array('function', 'load_menu', '/var/www/tabarnak/writable/templates/tabarnak/header.tpl', 14, false),)), $this); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
    <head>
@@ -9,7 +9,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '
 </title>
        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
        <link rel="stylesheet" type="text/css" href="<?php echo @BASE_URL; ?>
-writable/templates/tabarnak.css"/>
+writable/templates/tabarnak/tabarnak.css"/>
    </head>
    <body>
    <div id="baniere">

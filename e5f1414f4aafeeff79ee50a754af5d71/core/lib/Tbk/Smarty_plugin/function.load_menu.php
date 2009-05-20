@@ -20,7 +20,7 @@ function smarty_function_load_menu($params,&$smarty)
   foreach($array as $cle=>$valeur){
     if($cle != "deny"){
       if(!isset($deny[$cle]) || (isset($deny[$cle]) && !preg_match("#$role#",$deny[$cle]))){
-        $liens[$cle] = '#';
+        $liens[$cle] = array();
         foreach($array[$cle] as $k=>$v){
           $allowed = true;
           $explode = explode('/',$v);
@@ -31,7 +31,7 @@ function smarty_function_load_menu($params,&$smarty)
                 $allowed = false;
             }
             if($allowed)
-              $liens[$k] = $v;
+              $liens[$cle][$k] = $v;
           }
         }
       }
