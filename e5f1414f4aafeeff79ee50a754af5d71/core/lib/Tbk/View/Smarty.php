@@ -6,6 +6,7 @@ class Tbk_View_Smarty extends Zend_View_Abstract
    * @var Smarty
    */
   public $_smarty;
+  public $_doctype;
 
   /**
    * Constructeur
@@ -25,6 +26,9 @@ class Tbk_View_Smarty extends Zend_View_Abstract
     foreach ($extraParams as $key => $value) {
       $this->_smarty->$key = $value;
     }
+    
+    $this->_doctype = new Zend_View_Helper_Doctype();
+    $this->_doctype->setDoctype(Zend_View_Helper_Doctype::XHTML1_STRICT);
   }
 
   /**
@@ -174,6 +178,10 @@ class Tbk_View_Smarty extends Zend_View_Abstract
   protected function _run()
   {
     include func_get_arg(0);
+  }
+  
+  public function doctype(){
+    return $this->_doctype;
   }
 }
 ?>

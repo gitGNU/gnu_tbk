@@ -47,7 +47,14 @@ class GroupRightForm extends Zend_Form
       //Ajout au formulaire de base
       $this->addSubForm($subForm,$module);
     }
-    $this->addElement('submit', 'enregistrer', array('label' => 'Enregistrer'));
+    
+    $submit = new Zend_Form_Element_Submit('enregistrer');
+    $submit->setLabel('Enregistrer');
+    $submit->setDecorators(array(
+    'ViewHelper',
+    array(array('row' => 'HtmlTag'), array('tag' => '<p>')))
+    );
+    $this->addElement($submit,'enregistrer');
   }
 }
 ?>

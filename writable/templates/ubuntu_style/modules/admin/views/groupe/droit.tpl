@@ -37,7 +37,7 @@
           {/foreach}
         {/foreach}
 {/foreach}
-      
-      <tr><td colspan="{$nbCompte}">{$form->enregistrer}</td></table>
+      </table>
+      {$form->enregistrer}
 </form>
 {include file="$chemin_patron/footer.tpl"}

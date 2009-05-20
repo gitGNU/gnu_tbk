@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.24, created on 2009-05-20 11:44:00
+<?php /* Smarty version 2.6.24, created on 2009-05-20 16:20:11
          compiled from /var/www/tabarnak/writable/templates/tabarnak/header.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', '/var/www/tabarnak/writable/templates/tabarnak/header.tpl', 4, false),array('function', 'load_menu', '/var/www/tabarnak/writable/templates/tabarnak/header.tpl', 14, false),)), $this); ?>
@@ -22,14 +22,15 @@ writable/templates/tabarnak/tabarnak.css"/>
    	<?php $_from = $this->_tpl_vars['liens']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['v']):
 ?>
-   		<?php if ($this->_tpl_vars['v'] == "#"): ?>
-   			<h3><?php echo $this->_tpl_vars['k']; ?>
+   		<h3><?php echo $this->_tpl_vars['k']; ?>
 </h3>
-   		<?php else: ?>
-   			<a href="<?php echo $this->_tpl_vars['v']; ?>
-"><?php echo $this->_tpl_vars['k']; ?>
+   		<?php $_from = $this->_tpl_vars['v']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['texte'] => $this->_tpl_vars['lien']):
+?>
+   			<a href="<?php echo $this->_tpl_vars['lien']; ?>
+"><?php echo $this->_tpl_vars['texte']; ?>
 </a>
-   		<?php endif; ?>
+   		<?php endforeach; endif; unset($_from); ?>
    	<?php endforeach; endif; unset($_from); ?>
    </div>
    

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.24, created on 2009-05-20 10:08:09
+<?php /* Smarty version 2.6.24, created on 2009-05-20 16:30:49
          compiled from pub/views/index/index.tpl */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['chemin_patron'])."/header.tpl", 'smarty_include_vars' => array()));

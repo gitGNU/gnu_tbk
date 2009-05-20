@@ -160,7 +160,10 @@ $frontController->setParam('debug',TRUE);
 
 // ********************* LOG ********************************
 // ********************* VIEW ********************************
-$templates_name = 'ubuntu_style';
+if(!isset($_COOKIE['design']))
+  setcookie('design','ubuntu_style',time()+3600*30);
+
+$templates_name = $_COOKIE['design'];
 
 $view = new Tbk_View_Smarty(WRI_PATH.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$templates_name.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR);
 $view->_smarty->compile_dir = WRI_PATH.DIRECTORY_SEPARATOR.'templates_c';
@@ -181,7 +184,7 @@ $view->setEncoding('UTF-8');
 // http://framework.zend.com/manual/fr/zend.controller.response.html
 // Demande au contrôleur frontal de ne pas afficher, mais retourner
 //Affecte une variable à toutes les vues pour pouvoir inclure le header et le footer.
-$view->assign('chemin_patron',WRI_PATH.DIRECTORY_SEPARATOR.'templates/ubuntu_style');
+$view->assign('chemin_patron',WRI_PATH.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.$templates_name);
 
 $frontController->returnResponse(TRUE);
 

@@ -266,4 +266,30 @@ function is_module_active($module_name){
   $conf = new Zend_Config_Ini($chemin.DIRECTORY_SEPARATOR.'descriptor.ini','activation');
   return $conf->active == 1;
 }
+
+function get_all_design(){
+  $templates = WRI_PATH.DIRECTORY_SEPARATOR.'templates';
+  $designs = array();
+  if ($dh = opendir($templates))
+  {
+    // Pour chaque module, on vient l'ajouter au tableau de retour
+    while (($file=readdir($dh)) !== FALSE)
+    {
+      if ($file != '.' && $file != '..')
+      {
+        if (is_dir($templates.DIRECTORY_SEPARATOR.$file))
+        {
+          array_push($designs,$file);
+        }
+      }
+    }
+    closedir($dh);
+  }
+  else
+    return $designs;
+}
+
+function set_design($design_name){
+  setcookie('design',$design_name,time()+3600*30);
+}
 ?>

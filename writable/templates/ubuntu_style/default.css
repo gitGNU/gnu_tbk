@@ -19,10 +19,8 @@ h1, h2, h3 {
 	padding: 0;
 }
 
-h1 {
-}
-
-h2 {
+h1, h2 {
+	margin:10px;
 }
 
 p, ul, ol {
@@ -109,9 +107,9 @@ input[type="submit"]
 
 #menu {
 	width: 870px;
-	height: 40px;
+	height: 30px;
 	margin: 0 auto;
-	background: url(images/img03.jpg) repeat-x left top;
+	background: url('images/img03.jpg') repeat-x;
 }
 
 .sousmenu
@@ -119,8 +117,8 @@ input[type="submit"]
 	float: left;
 	text-align:center;
 	min-width:90px;
-	height: 40px;
-	background: url(images/img04.jpg) no-repeat right top;
+	height: 30px;
+	background: url('images/img04.jpg') no-repeat top right;
 }
 
 .soumenu a{
@@ -129,7 +127,7 @@ input[type="submit"]
 
 #menu ul {
 	padding: 0;
-	margin:0px;
+	margin:0;
 	list-style: none;
 }
 
@@ -137,7 +135,7 @@ input[type="submit"]
 	position: absolute;
 	top: 0;
 	display:none;
-	background: url(images/img03.jpg) repeat left top;
+	background: url(images/img03.jpg) repeat;
 }
 
 #menu ul.niveau1 li.sousmenu:hover ul.niveau2,
@@ -152,6 +150,7 @@ input[type="submit"]
 
 #menu ul ul {
 	position: relative;
+	top:0;
 	left:0;
 }  
 
@@ -160,24 +159,23 @@ input[type="submit"]
 }
 
 #menu li:hover {
-	background:lightgray;
+	background:darkred;
 }
 
 #menu li.sousmenu:hover ul.niveau2 li a:hover{
 	font-weight: bold;
-	color:black;
 }
 
 #menu li.sousmenu:hover {
 	background:none;
 	color:black;
+	background: url('images/img04.jpg') green no-repeat top right;
 }
 
 #menu li a {
 	text-decoration: none;
-	padding: 5px 5px 5px 5px;
+	padding: 5px 5px 1px 5px;
 	display:block;
-	background: url(images/img04.jpg) no-repeat right top;
 }
 
 /** LOGO */
@@ -408,4 +406,51 @@ html>body #footer {
 
 #legal a {
 	font-weight: normal;
+}
+
+/* Tableau d'administration */
+form table
+{
+	margin:auto;
+	width: 90%;
+}
+#admin_table tr:first-child td
+{
+	font-size : 1.2em;
+	font-weight: bold;
+	background-color:#C6BAA4;
+	text-align:center;
+}
+
+#admin_table 
+{
+	width:100%;
+	border-collapse: collapse;
+}
+
+#admin_table td
+{
+	border : 1px solid black;
+	border-collapse: collapse;
+	background-color:#F1EEE7;
+}
+
+#admin_table .cell_module
+{
+	font-size: 1.3em;
+	text-align : center;
+	background-color:#D4C9B5;
+}
+
+#admin_table .cell_controller
+{
+	font-size: 1.1em;
+	text-align : center;
+	background-color:#E1D9CC;
+}
+
+#admin_table tr:first-child td:first-child
+{
+	border:none;
+	background-color:transparent;
 }
