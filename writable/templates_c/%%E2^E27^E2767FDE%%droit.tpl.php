@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.24, created on 2009-05-20 10:08:04
+<?php /* Smarty version 2.6.24, created on 2009-05-20 13:57:37
          compiled from admin/views/groupe/droit.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'admin/views/groupe/droit.tpl', 31, false),)), $this); ?>
@@ -85,7 +85,7 @@ unset($_smarty_tpl_vars);
       
       <tr><td colspan="<?php echo $this->_tpl_vars['nbCompte']; ?>
 "><?php echo $this->_tpl_vars['form']->enregistrer; ?>
-</td></td></table>
+</td></table>
 </form>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['chemin_patron'])."/footer.tpl", 'smarty_include_vars' => array()));
