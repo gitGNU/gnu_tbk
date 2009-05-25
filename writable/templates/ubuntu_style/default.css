@@ -448,9 +448,3 @@ form table
 	text-align : center;
 	background-color:#E1D9CC;
 }
-
-#admin_table tr:first-child td:first-child
-{
-	border:none;
-	background-color:transparent;
-}
