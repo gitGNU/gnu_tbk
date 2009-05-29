@@ -1,6 +1,6 @@
 {include file="$chemin_patron/header.tpl"}
 {literal}
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 	var visible = new Array();
 	
 	function cacher(id){
@@ -35,10 +35,9 @@
 <div id="ajout">{$ajout}
 <hr/>
 </div>
-<br/>
 <h3>Liste des utilisateurs : <a href="#" style="font-size:0.7em;" onclick="javascript:action('users',this);">(Cacher le bloc)</a></h3>
-<br/>
 <div id="users">
+<br/>
 <form method="{$liste->getMethod()}" action="{$liste->getAction()}" enctype="{$liste->getEnctype()}">
 <table id="admin_table">
 		<tr>
@@ -66,7 +65,7 @@
      		<td style="text-align:center">{$elements[$name_elem]}</td>
      	</tr>
 {/foreach}
-      </table><br/>
+      </table>
       {load_paginator paginator=$pages assign='allPages'}
       {foreach from=$allPages item=it}
       	{if $pages->current == $it}
@@ -77,7 +76,7 @@
       		<a href="/admin/utilisateur/index/page/{$it}">{$it}</a>
       	{/if}
       {/foreach}
-      <br/>
+      <p><br/></p>
       {$liste->supprimer}
 </form>
 </div>

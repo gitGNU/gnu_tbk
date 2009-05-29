@@ -61,7 +61,7 @@ class Tbk_AuthAdapter implements Zend_Auth_Adapter_Interface
           Zend_Auth_Result::FAILURE,
           null,
           array("Login inconnu"));
-        return $res;
+      return $res;
     }
   }
 }

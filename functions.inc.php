@@ -46,7 +46,7 @@
  *
  * <p>Fonction de lecture du dossier des applications</p>
  *
- * @name bootstrap::getAppPath()
+ * @name functions.inc::getAppPath()
  * @param $pSecureKey: Clé de sécurité, par défaut, vaut NUL
  * @var $sAppDirName='applications';
  * @return $sAppPath: Chemin du dossier des applications;
@@ -67,7 +67,7 @@ function getAppPath($pSecureKey='')
  *
  * <p>Fonction de lecture du nom du dossier des applications</p>
  *
- * @name bootstrap::getAppBaseName()
+ * @name functions.inc::getAppBaseName()
  * @param $pSecureKey: Clé de sécurité, par défaut, vaut NUL
  * @var $sAppPath: Chemin du dossier des applications;
  * @return Nom du dossier des applications;
@@ -82,7 +82,7 @@ function getAppBaseName($pSecureKey='')
  *
  * <p>Fonction de lecture du dossier des modules</p>
  *
- * @name bootstrap::getModPath()
+ * @name functions.inc::getModPath()
  * @param $pAppPath: Chemin du dossier des applications, par défaut, vaut NULL
  * @param $pModDirName: nom du dossier des modules, par défaut, vaut 'modules'
  * @return $sModPath: Chemin du dossier des modules;
@@ -99,7 +99,7 @@ function getModPath($pAppPath,$pModDirName='modules')
  *
  * <p>Fonction d'invocation du module d'installation</p>
  *
- * @name bootstrap::loadInstall()
+ * @name functions.inc::loadInstall()
  * @param $pAppDirName: Nom du répertoire des applications
  * @param $pLevel: Niveau d'erreur lié à l'installation
  * @return void
@@ -160,7 +160,7 @@ DELIMITHEREDOC;
  *
  * <p>Fonction de lecture du nom des modules</p>
  *
- * @name bootstrap::getModulesNames()
+ * @name functions.inc::getModulesNames()
  * @param $sModPath: Chemin du dossier des modules
  * @return $sModName
  */
@@ -199,6 +199,16 @@ function getURIBase()
   return dirname($url['path']);
 }
 
+
+/**
+ * Lecture des rôles présent dans l'application
+ *
+ * <p>Fonction permettant de retrouver la liste des rôles installés</p>
+ *
+ * @name functions.inc::getRolesArray()
+ * @var $conf=Zend_Config_Ini;
+ * @return array : cle/valeur =>  nom du rôle;
+ */
 function getRolesArray(){
   $conf = new Zend_Config_Ini(CONFIG_PATH.'tabarnak_acl.ini','roles');
   foreach($conf->toArray() as $k=>$v){
@@ -207,11 +217,32 @@ function getRolesArray(){
   return $roles;
 }
 
+/**
+ * Génération d'un tableau à partir d'une chaine de caractere
+ *
+ * <p>Permet de générer un tableau à partir d'une chaine de caractère (utilise explode)</p>
+ *
+ * @name functions.inc::getArrayFromIniString(string)
+ * @param string: $string est la chaine source.
+ * @return array : tableau contenant les différentes valeures extraites
+ */
 function getArrayFromIniString($string){
   return strrpos($string,',') ? explode(',',$string) : array(0 => $string);
 }
 
-function isAllowed($role,$module,$controller,$action){
+/**
+ * Vérification d'accès
+ *
+ * <p>Vérfie si un utilisateur à les droits d'accès à une ressource</p>
+ *
+ * @name functions.inc::isAllowed($role,$module,$controller,$action)
+ * @param string $role : le role de l'utilisateur
+ * @param string $module : le module concerné (défaut = 'index')
+ * @param string $controller : le controller concerné (défaut = 'index')
+ * @param string $action : l'action concernée (défaut = 'index')
+ * @return boolean : true s'il à les droits nécessaire pour accéder à la ressource, false sinon.
+ */
+function isAllowed($role = 'invite', $module = 'index', $controller = 'index' ,$action = 'index'){
    $acl = getAclFromSession();
    $r = $acl->getRole($role);
    $ressource = $module."_".$controller;
@@ -258,6 +289,13 @@ function formDecorator(){
   'Form',);
 }
 
+/**
+ * <p>Vérifie si un module est activé (et présent)</p>
+ *
+ * @name functions.inc::is_module_active($module_name)
+ * @param string $module_name : le nom du module à vérifier
+ * @return boolean : true si activé, false sinon.
+ */
 function is_module_active($module_name){
   $chemin = APP_PATH.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.$module_name;
   if(!is_dir($chemin) || !file_exists($chemin.DIRECTORY_SEPARATOR.'descriptor.ini'))
@@ -267,6 +305,12 @@ function is_module_active($module_name){
   return $conf->active == 1;
 }
 
+/**
+ * <p>Récupère la liste de tous les designs disponibles</p>
+ *
+ * @name functions.inc::get_all_design()
+ * @return array : ensemble cle/valeur => nom_design/chemin_design.
+ */
 function get_all_design(){
   $templates = WRI_PATH.DIRECTORY_SEPARATOR.'templates';
   $designs = array();
@@ -289,6 +333,12 @@ function get_all_design(){
     return $designs;
 }
 
+/**
+ * <p>Change le design courant de l'utilisateur</p>
+ *
+ * @name functions.inc::set_design($design_name)
+ * @return void.
+ */
 function set_design($design_name){
   setcookie('design',$design_name,time()+3600*30);
 }

@@ -57,7 +57,6 @@ class Login_RegisterController extends Zend_Controller_Action
     $form->addElement($mail,'mail');
     $form->addElement($listeRole,'role');
     $form->addElement($source,'source_form');
-
     $form->addElement($submit,'login');
     return $form;
   }
