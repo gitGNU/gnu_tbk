@@ -2,7 +2,9 @@
 	<!-- end content -->
 	<!-- start sidebar -->
 	<div id="sidebar">
-		
+		{if isset($liens_sidebar)}
+			{load_sidebar from=$liens_sidebar}
+		{/if}
 	</div>
 	<div style="clear: both;">&nbsp;</div>
 </div>
