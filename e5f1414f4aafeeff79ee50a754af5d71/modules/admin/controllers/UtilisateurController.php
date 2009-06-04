@@ -76,10 +76,6 @@ class Admin_UtilisateurController extends Zend_Controller_Action
 
     $users = $db->fetchAll($select);
     
-    echo '<pre>';
-    var_dump($select);
-    echo'</pre>';
-    
     $paginator = Zend_Paginator::factory($users);
     $paginator->setCurrentPageNumber($page);
     $paginator->setItemCountPerPage(10);
