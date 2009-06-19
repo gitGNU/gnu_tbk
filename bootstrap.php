@@ -162,7 +162,7 @@ $frontController->setParam('debug',TRUE);
 // ********************* LOG ********************************
 // ********************* VIEW ********************************
 if(!isset($_COOKIE['design']))
-  setcookie('design','ubuntu_style',time()+3600*30);
+  setcookie('design',$sDefaultStyle,time()+3600*30);
 
 $templates_name = $_COOKIE['design'];
 

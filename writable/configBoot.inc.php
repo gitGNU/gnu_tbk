@@ -30,11 +30,12 @@
  */
 
 // <ELEMENTS_MODIFIABLES>
-$sSecretKey='oU1fArMaKl0InkoYnI1nAagAbL6ghAMa';
+$sSecretKey='';
 $sWriteDirName='writable';
 $sBaseUrl='/tabarnak';
 $sCore='core';
 $sModDirName='modules';
 $sDefaultModule='pub';
+$sDefaultStyle='ubuntu_style';
 // </ELEMENTS_MODIFIABLES>
 ?>

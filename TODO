@@ -1,3 +1,8 @@
-﻿Comme c'est doux !
-Test 2
-Ou pas !
+Ajout du projet sur Savannah : 
+	Description : 
+Tabarnak is a free PHP software written with the Zend Framework and the Smarty's template engine distrubuted under GPL v2.
+He works on a module architecture, independent of the database engine and structure (you can use an existing one for Tabarnak).
+Tabarnak is the base part of a helpdesk on which you can plug some module to add some features.
+Started for a school project, we wants to open the source code and find some contributers.
+Each part of the documentation would be distributed under Creative Commons licence and written with DocBook format.
+
